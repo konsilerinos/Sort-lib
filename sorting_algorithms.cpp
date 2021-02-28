@@ -3,36 +3,38 @@
 #include <chrono>
 #include <ctime>
 
-/* Получение массива псевдослучайных чисел */
+//---------------------------------------------------------------------------------------
+
+/* Getting an array of pseudo-random numbers */
 int* GetSomeArray(int size) {
 
-	int* new_mas = new int[size]; // Выделение памяти для массива
+	int* new_mas = new int[size]; // Allocating memory for an array
 
-	srand(time(NULL)); // Инициализация генератора псевдослучайных чисел
+	srand(time(NULL)); // Initializing the pseudo-random number generator
 
-	/* Запись массива */
+	/* Writing an array */
 	for (int i = 0; i < size; i++) {
 		new_mas[i] = rand() % 10;
 	}
 
-	/* Возвращение результата */
+	/* Returning the result */
 	return new_mas;
 }
 
-/* Печать массива */
+/* Printing an array */
 void PrintArray(std::string msg, int* mas, int size) {
-	std::cout << msg; // Пользовательское сообщение
+	std::cout << msg; // Custom Message
 
-	/* Вывод элементов массива на экран */
+	/* Displaying array elements on the screen */
 	for (int i = 0; i < size; i++) {
 		std::cout << mas[i] << " ";
 	}
 
-	/* Перенос строки */
+	/* Line break */
 	std::cout << std::endl;
 }
 
-
+//---------------------------------------------------------------------------------------
 
 /* Сортировка вставками, возвращает время выполнения */
 std::chrono::milliseconds InsertSort(int* mas, int size) {
@@ -58,12 +60,12 @@ std::chrono::milliseconds InsertSort(int* mas, int size) {
 		mas[index] = temp; // Сохранение сортируемого элемента в массив
 	}
 
-	auto end = std::chrono::steady_clock::now(); // Сохранение времени конца выполнения
+	auto end = std::chrono::steady_clock::now(); // Saving the end-of-execution time
 
-	/* Время выполнения алгоритма */
+	/* The run time of the algorithm */
 	auto result_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin);
 
-	/* Передача информации о времени выполнения алгоритма */
+	/* The transmission of information about the execution time of the algorithm */
 	return result_time;
 }
 
@@ -84,12 +86,12 @@ std::chrono::milliseconds BubbleSort(int* mas, int size) {
 		}
 	}
 
-	auto end = std::chrono::steady_clock::now(); // Сохранение времени конца выполнения
+	auto end = std::chrono::steady_clock::now(); // Saving the end-of-execution time
 
-	/* Время выполнения алгоритма */
+	/* The run time of the algorithm */
 	auto result_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin);
 
-	/* Передача информации о времени выполнения алгоритма */
+	/* The transmission of information about the execution time of the algorithm */
 	return result_time;
 }
 
@@ -118,12 +120,12 @@ std::chrono::milliseconds ShellSort(int* mas, int size) {
 		interval = interval / 2; // Уменьшение интервала в два раза
 	}
 
-	auto end = std::chrono::steady_clock::now(); // Сохранение времени конца выполнения
+	auto end = std::chrono::steady_clock::now(); // Saving the end-of-execution time
 
-	/* Время выполнения алгоритма */
+	/* The run time of the algorithm */
 	auto result_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin);
 
-	/* Передача информации о времени выполнения алгоритма */
+	/* The transmission of information about the execution time of the algorithm */
 	return result_time;
 }
 
@@ -150,12 +152,12 @@ std::chrono::milliseconds ChoiceSort(int* mas, int size) {
 		}
 	}
 
-	auto end = std::chrono::steady_clock::now(); // Сохранение времени конца выполнения
+	auto end = std::chrono::steady_clock::now(); // Saving the end-of-execution time
 
-	/* Время выполнения алгоритма */
+	/* The run time of the algorithm */
 	auto result_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin);
 
-	/* Передача информации о времени выполнения алгоритма */
+	/* The transmission of information about the execution time of the algorithm */
 	return result_time;
 }
 
@@ -195,19 +197,19 @@ std::chrono::milliseconds QuickSort(int* mas, int first, int last) {
 		QuickSort(mas, first, j);
 	}
 
-	auto end = std::chrono::steady_clock::now(); // Сохранение времени конца выполнения
+	auto end = std::chrono::steady_clock::now(); // Saving the end-of-execution time
 
-	/* Время выполнения алгоритма */
+	/* The run time of the algorithm */
 	auto result_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin);
 
-	/* Передача информации о времени выполнения алгоритма */
+	/* The transmission of information about the execution time of the algorithm */
 	return result_time;
 }
 
 /* Сортировка бинарной вставкой, возвращает время выполнения */
 std::chrono::milliseconds BinaryInsertSort(int* mas, int size) {
 
-	auto begin = std::chrono::steady_clock::now(); // Сохранение времени начала выполнения
+	auto begin = std::chrono::steady_clock::now(); // Saving the start time of execution
 
 	int element = 0, left = 0, right = 0, average = 0;
 
@@ -236,11 +238,103 @@ std::chrono::milliseconds BinaryInsertSort(int* mas, int size) {
 		}
 	}
 
-	auto end = std::chrono::steady_clock::now(); // Сохранение времени конца выполнения
+	auto end = std::chrono::steady_clock::now(); // Saving the end-of-execution time
 
-	/* Время выполнения алгоритма */
+	/* The run time of the algorithm */
 	auto result_time = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin);
 
-	/* Передача информации о времени выполнения алгоритма */
+	/* The transmission of information about the execution time of the algorithm */
 	return result_time;
+}
+
+//---------------------------------------------------------------------------------------
+
+void InsertSortTest() {
+
+	std::cout << "> Insert sort time testing" << std::endl;
+
+	for (int i = 10000; i < 100000; i = i + 10000) {
+
+		int* array = GetSomeArray(i); // Initializing an array
+		int time = InsertSort(array, i).count(); // Measuring the running time of the insertion sorting algorithm
+
+		std::cout << "Size = " << i << ", time = " << time << "ms;" << std::endl;
+
+		delete[] array; // Freeing up memory
+	}
+}
+
+void BubbleSortTest() {
+
+	std::cout << "> Bubble sort time testing" << std::endl;
+
+	for (int i = 10000; i <= 100000; i = i + 10000) {
+
+		int* array = GetSomeArray(i); // Initializing an array
+		int time = BubbleSort(array, i).count(); // Замер времени работы алгоритма стандартного обмена
+
+		std::cout << "Size = " << i << ", time = " << time << "ms;" << std::endl;
+
+		delete[] array; // Freeing up memory
+	}
+}
+
+void ShellSortTest() {
+
+	std::cout << "> Shell sort time testing" << std::endl;
+
+	for (int i = 10000; i <= 100000; i = i + 10000) {
+
+		int* array = GetSomeArray(i); // Initializing an array
+		int time = ShellSort(array, i).count(); // Measuring the running time of the Shell sorting algorithm
+
+		std::cout << "Size = " << i << ", time = " << time << "ms;" << std::endl;
+
+		delete[] array; // Freeing up memory
+	}
+}
+
+void ChoiseSortTest() {
+
+	std::cout << "> Choise sort time testing" << std::endl;
+
+	for (int i = 10000; i <= 100000; i = i + 10000) {
+
+		int* array = GetSomeArray(i); // Initializing an array
+		int time = ChoiceSort(array, i).count(); // Measuring the running time of the sorting algorithm by simple selection
+
+		std::cout << "Size = " << i << ", time = " << time << "ms;" << std::endl;
+
+		delete[] array; // Freeing up memory
+	}
+}
+
+void QuickSorttest() {
+
+	std::cout << "> Quick sort time testing" << std::endl;
+
+	for (int i = 10000; i <= 100000; i = i + 10000) {
+
+		int* array = GetSomeArray(i); // Initializing an array
+		int time = QuickSort(array, 0, i - 1).count(); // Measuring the running time of the quick sort algorithm
+
+		std::cout << "Size = " << i << ", time = " << time << "ms;" << std::endl;
+
+		delete[] array; // Freeing up memory
+	}
+}
+
+void BunarySortTest() {
+
+	std::cout << "> Binary sort time testing" << std::endl;
+
+	for (int i = 10000; i <= 100000; i = i + 10000) {
+
+		int* array = GetSomeArray(i); // Initializing an array
+		int time = BinaryInsertSort(array, i).count(); // Measuring the running time of the binary sorting algorithm
+
+		std::cout << "Size = " << i << ", time = " << time << "ms;" << std::endl;
+
+		delete[] array; // Freeing up memory
+	}
 }

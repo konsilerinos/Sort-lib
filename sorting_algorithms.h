@@ -12,3 +12,10 @@ std::chrono::milliseconds ShellSort(int*, int);				// Сортировка методом Шелла
 std::chrono::milliseconds ChoiceSort(int*, int);			// Сортировка простым выбором
 std::chrono::milliseconds QuickSort(int*, int, int);		// Сортировка методом Хоара
 std::chrono::milliseconds BinaryInsertSort(int*, int);		// Сортировка бинарными вставками
+
+void InsertSortTest();
+void BubbleSortTest();
+void ShellSortTest();
+void ChoiseSortTest();
+void QuickSorttest();
+void BunarySortTest();
