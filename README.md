@@ -1,4 +1,4 @@
-# Sorting_algorithms
+# Sorting algorithms
 Implementation of sorting algorithms
 
 The following algorithms for sorting arrays (integers) are implemented and tested at runtime): 
