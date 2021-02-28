@@ -1,8 +1,6 @@
 #include <iostream>
 #include "sorting_algorithms.h"
 
-
-
 int main() {
 
 	InsertSortTest();
@@ -19,4 +17,3 @@ int main() {
 
 	return 0;
 }
-
