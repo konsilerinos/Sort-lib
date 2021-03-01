@@ -49,7 +49,7 @@ std::chrono::milliseconds InsertSort(int* mas, int size) {
 		temp = mas[index];	// Value of the sorted element
 
 		/* Shifting large elements to the place of the sorted element */
-		for (int j = i + 1; j > 0; j--) { // Убрать +1
+		for (int j = i + 1; j > 0; j--) {
 			/* If the sortable element is smaller, then move it to the right */
 			if (temp < mas[j - 1]) {
 				mas[j] = mas[j - 1];
