@@ -3,19 +3,21 @@
 #include <iostream>
 #include <chrono>
 
-int* GetSomeArray(int); // Инициализация массива
-void PrintArray(std::string, int*, int); // Печать массива
+int* GetSomeArray(int);						// Initializing an array
+void PrintArray(std::string, int*, int);	// Printing an array
 
-std::chrono::milliseconds InsertSort(int*, int);			// Сортировка вставками 
-std::chrono::milliseconds BubbleSort(int*, int);			// Сортировка стандартным обменом
-std::chrono::milliseconds ShellSort(int*, int);				// Сортировка методом Шелла
-std::chrono::milliseconds ChoiceSort(int*, int);			// Сортировка простым выбором
-std::chrono::milliseconds QuickSort(int*, int, int);		// Сортировка методом Хоара
-std::chrono::milliseconds BinaryInsertSort(int*, int);		// Сортировка бинарными вставками
+std::chrono::milliseconds InsertSort(int*, int);			// Sorting by inserts
+std::chrono::milliseconds BubbleSort(int*, int);			// Sorting by standard exchange
+std::chrono::milliseconds ShellSort(int*, int);				// Sorting by the Shell method
+std::chrono::milliseconds ChoiceSort(int*, int);			// Sort by simple selection
+std::chrono::milliseconds QuickSort(int*, int, int);		// Hoare sorting method
+std::chrono::milliseconds BinaryInsertSort(int*, int);		// Sorting by binary inserts
 
-void InsertSortTest();
-void BubbleSortTest();
-void ShellSortTest();
-void ChoiseSortTest();
-void QuickSorttest();
-void BunarySortTest();
+void TestSortingAlgorithms();	// Testing of sorting algorithms
+
+void InsertSortTest();			// Testing the insertion sorting algorithm	
+void BubbleSortTest();			// Testing the "bubble" sorting algorithm
+void ShellSortTest();			// Testing the Shell sorting algorithm
+void ChoiseSortTest();			// Testing the selection sorting algorithm
+void QuickSorttest();			// Testing the Quick sort algorithm
+void BunarySortTest();			// Testing the binary sorting algorithm

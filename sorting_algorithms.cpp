@@ -5,7 +5,7 @@
 
 //---------------------------------------------------------------------------------------
 
-/* Getting an array of pseudo-random numbers */
+// Getting an array of pseudo-random numbers
 int* GetSomeArray(int size) {
 
 	int* new_mas = new int[size]; // Allocating memory for an array
@@ -21,7 +21,7 @@ int* GetSomeArray(int size) {
 	return new_mas;
 }
 
-/* Printing an array */
+// Printing an array
 void PrintArray(std::string msg, int* mas, int size) {
 	std::cout << msg; // Custom Message
 
@@ -36,28 +36,28 @@ void PrintArray(std::string msg, int* mas, int size) {
 
 //---------------------------------------------------------------------------------------
 
-/* Сортировка вставками, возвращает время выполнения */
+// Sort by inserts, returns the execution time
 std::chrono::milliseconds InsertSort(int* mas, int size) {
 
-	auto begin = std::chrono::steady_clock::now(); // Сохранение времени начала выполнения
+	auto begin = std::chrono::steady_clock::now(); // Saving the start time of execution
 
 	int index = 0, temp = 0;
 
 	for (int i = 0; i < size - 1; i++) {
 
-		index = i + 1;		// Индекс сортируемого элемента
-		temp = mas[index];	// Значение сортируемого элемента
+		index = i + 1;		// Index of the sorted element
+		temp = mas[index];	// Value of the sorted element
 
-		/* Сдвиг бОльших элементов на место сортируемого элемента */
+		/* Shifting large elements to the place of the sorted element */
 		for (int j = i + 1; j > 0; j--) { // Убрать +1
-			/* Если сортируемый элемент меньше, то сдвинуть вправо */
+			/* If the sortable element is smaller, then move it to the right */
 			if (temp < mas[j - 1]) {
 				mas[j] = mas[j - 1];
-				index = j - 1; // Индекс "свободного места"
+				index = j - 1; // Index of "free space""
 			}
 		}
 
-		mas[index] = temp; // Сохранение сортируемого элемента в массив
+		mas[index] = temp; // Saving a sortable element to an array
 	}
 
 	auto end = std::chrono::steady_clock::now(); // Saving the end-of-execution time
@@ -69,15 +69,15 @@ std::chrono::milliseconds InsertSort(int* mas, int size) {
 	return result_time;
 }
 
-/* Сортировка стандартным обменом, возвращает время выполнения */
+// Sorting by standard exchange, returns the execution time
 std::chrono::milliseconds BubbleSort(int* mas, int size) {
 
-	auto begin = std::chrono::steady_clock::now(); // Сохранение времени начала выполнения
+	auto begin = std::chrono::steady_clock::now(); // Saving the start time of execution
 
-	/* Обход пар элементов в массиве */
+	/* Traversing pairs of elements in an array */
 	for (int i = 0; i < size; i++) {
 		for (int j = 0; j < size - i - 1; j++) {
-			/* Сортировка в порядке возрастания */
+			/* Sort in ascending order */
 			if (mas[j] > mas[j + 1]) {
 				int temp = mas[j];
 				mas[j] = mas[j + 1];
@@ -95,29 +95,29 @@ std::chrono::milliseconds BubbleSort(int* mas, int size) {
 	return result_time;
 }
 
-/* Сортировка методом Шелла, возвращает время выполнения */
+// Shell sorting, returns the execution time
 std::chrono::milliseconds ShellSort(int* mas, int size) {
 
-	auto begin = std::chrono::steady_clock::now(); // Сохранение времени начала выполнения
+	auto begin = std::chrono::steady_clock::now(); // Saving the start time of execution
 
-	int interval = size / 2; // Расстояние между сравниваемыми объектами
+	int interval = size / 2; // Distance between the objects being compared
 
 	while (interval > 0)
 	{
 		for (int i = 0; i < size - interval; i++)
 		{
 			int j = i;
-			/* Сравненение пар элементов, сортировка в порядке возрастания */
+			/* Comparing pairs of elements, sorting in ascending order */
 			while (j >= 0 && mas[j] > mas[j + interval])
 			{
 				int temp = mas[j];
 				mas[j] = mas[j + interval];
 				mas[j + interval] = temp;
 
-				j--; // Рассмотрение предыдущего элемента
+				j--; // Consideration of the previous element
 			}
 		}
-		interval = interval / 2; // Уменьшение интервала в два раза
+		interval = interval / 2; // Reducing the interval of two times
 	}
 
 	auto end = std::chrono::steady_clock::now(); // Saving the end-of-execution time
@@ -129,20 +129,20 @@ std::chrono::milliseconds ShellSort(int* mas, int size) {
 	return result_time;
 }
 
-/* Сортировка простым выбором, возвращает время выполнения */
+// Sort by simple selection, returns the execution time
 std::chrono::milliseconds ChoiceSort(int* mas, int size) {
 
 	auto begin = std::chrono::steady_clock::now(); // Сохранение времени начала выполнения
 
-	/* Проход по отсортированной части массива */
+	/* Passing through the sorted part of the array */
 	for (int i = 0; i < size; i++)
 	{
-		int temp = mas[0]; // Переменная для хранения сортируемого элемента
-		/* Поиск минимального элемента в неотсортированной части массива */
-		/* и формирование отсортированной части */
+		int temp = mas[0]; // Saving the start time of execution
+		/* Finding the minimum element in the unsorted part of the array */
+		/* and the formation of the sorted part */
 		for (int j = i + 1; j < size; j++)
 		{
-			/* Сортировка в порядке возрастания */
+			/* Sort in ascending order */
 			if (mas[i] > mas[j])
 			{
 				temp = mas[i];
@@ -161,14 +161,14 @@ std::chrono::milliseconds ChoiceSort(int* mas, int size) {
 	return result_time;
 }
 
-/* Сортировка методом Хоара, возвращает время выполнения */
+// Hoare sorting method, returns the execution time
 std::chrono::milliseconds QuickSort(int* mas, int first, int last) {
 
-	auto begin = std::chrono::steady_clock::now(); // Сохранение времени начала выполнения
+	auto begin = std::chrono::steady_clock::now(); // Saving the start time of execution
 
 	int i = first, j = last, element = mas[(first + last) / 2];
 
-	/* Определение элемента и границ сортировки */
+	/* Defining the element and sorting boundaries */
 	do {
 		while (mas[i] < element) {
 			i++;
@@ -189,7 +189,7 @@ std::chrono::milliseconds QuickSort(int* mas, int first, int last) {
 		}
 	} while (i <= j);
 
-	/* Рекурсивный вызов */
+	/* Recursive call */
 	if (i < last) {
 		QuickSort(mas, i, last);
 	}
@@ -206,7 +206,7 @@ std::chrono::milliseconds QuickSort(int* mas, int first, int last) {
 	return result_time;
 }
 
-/* Сортировка бинарной вставкой, возвращает время выполнения */
+// Binary insertion sort, returns the execution time
 std::chrono::milliseconds BinaryInsertSort(int* mas, int size) {
 
 	auto begin = std::chrono::steady_clock::now(); // Saving the start time of execution
@@ -249,6 +249,61 @@ std::chrono::milliseconds BinaryInsertSort(int* mas, int size) {
 
 //---------------------------------------------------------------------------------------
 
+void TestSortingAlgorithms() {
+	
+	bool loopParameter = true;
+	while (loopParameter) {
+		std::cout << "---> Select the algorithm whose time you want to find out\n" << std::endl;
+
+		std::cout << "Sort by inserts................1" << std::endl;
+		std::cout << "Sorting by standard exchange...2" << std::endl;
+		std::cout << "Shell sorting..................3" << std::endl;
+		std::cout << "Sort by simple selection.......4" << std::endl;
+		std::cout << "Hoare sorting method...........5" << std::endl;
+		std::cout << "Binary insertion sort..........6" << std::endl;
+		std::cout << "Exit...........................7\n" << std::endl;
+
+		int sortNumber = 0;
+
+		std::cout << "---> Number of the sorting algorithm: ";
+		std::cin >> sortNumber;
+		std::cin.get();
+		std::cout << std::endl;
+
+		switch (sortNumber) {
+		case 1:
+			InsertSortTest();
+			break;
+		case 2:
+			BubbleSortTest();
+			break;
+		case 3:
+			ShellSortTest();
+			break;
+		case 4:
+			ChoiseSortTest();
+			break;
+		case 5:
+			QuickSorttest();
+			break;
+		case 6:
+			BunarySortTest();
+			break;
+		case 7:
+			loopParameter = false;
+			break;
+		default:
+			break;
+		}
+
+		std::cout << std::endl;
+
+	}
+}
+
+//---------------------------------------------------------------------------------------
+
+// Testing the insertion sorting algorithm
 void InsertSortTest() {
 
 	std::cout << "> Insert sort time testing" << std::endl;
@@ -264,6 +319,7 @@ void InsertSortTest() {
 	}
 }
 
+// Testing the "bubble" sorting algorithm
 void BubbleSortTest() {
 
 	std::cout << "> Bubble sort time testing" << std::endl;
@@ -279,6 +335,7 @@ void BubbleSortTest() {
 	}
 }
 
+// Testing the Shell sorting algorithm
 void ShellSortTest() {
 
 	std::cout << "> Shell sort time testing" << std::endl;
@@ -294,6 +351,7 @@ void ShellSortTest() {
 	}
 }
 
+// Testing the selection sorting algorithm
 void ChoiseSortTest() {
 
 	std::cout << "> Choise sort time testing" << std::endl;
@@ -309,6 +367,7 @@ void ChoiseSortTest() {
 	}
 }
 
+// Testing the Quick sort algorithm
 void QuickSorttest() {
 
 	std::cout << "> Quick sort time testing" << std::endl;
@@ -324,6 +383,7 @@ void QuickSorttest() {
 	}
 }
 
+// Testing the binary sorting algorithm
 void BunarySortTest() {
 
 	std::cout << "> Binary sort time testing" << std::endl;

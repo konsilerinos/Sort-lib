@@ -3,17 +3,7 @@
 
 int main() {
 
-	InsertSortTest();
-
-	BubbleSortTest();
-	
-	ShellSortTest();
-	
-	ChoiseSortTest();
-	
-	QuickSorttest();
-	
-	BunarySortTest();
+	TestSortingAlgorithms();
 
 	return 0;
 }
