@@ -132,7 +132,7 @@ std::chrono::milliseconds ShellSort(int* mas, int size) {
 // Sort by simple selection, returns the execution time
 std::chrono::milliseconds ChoiceSort(int* mas, int size) {
 
-	auto begin = std::chrono::steady_clock::now(); // Сохранение времени начала выполнения
+	auto begin = std::chrono::steady_clock::now(); // Saving the start time of execution
 
 	/* Passing through the sorted part of the array */
 	for (int i = 0; i < size; i++)
@@ -327,7 +327,7 @@ void BubbleSortTest() {
 	for (int i = 10000; i <= 100000; i = i + 10000) {
 
 		int* array = GetSomeArray(i); // Initializing an array
-		int time = BubbleSort(array, i).count(); // Замер времени работы алгоритма стандартного обмена
+		int time = BubbleSort(array, i).count(); // Measuring the operating time of the standard exchange algorithm
 
 		std::cout << "Size = " << i << ", time = " << time << "ms;" << std::endl;
 
