@@ -3,7 +3,7 @@
 #include <chrono>
 #include <ctime>
 
-//---------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------
 
 // Getting an array of pseudo-random numbers
 int* GetSomeArray(int size) {
@@ -34,7 +34,7 @@ void PrintArray(std::string msg, int* mas, int size) {
 	std::cout << std::endl;
 }
 
-//---------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------
 
 // Sort by inserts, returns the execution time
 std::chrono::milliseconds InsertSort(int* mas, int size) {
@@ -247,7 +247,7 @@ std::chrono::milliseconds BinaryInsertSort(int* mas, int size) {
 	return result_time;
 }
 
-//---------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------
 
 void TestSortingAlgorithms() {
 	
@@ -301,7 +301,7 @@ void TestSortingAlgorithms() {
 	}
 }
 
-//---------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------
 
 // Testing the insertion sorting algorithm
 void InsertSortTest() {
