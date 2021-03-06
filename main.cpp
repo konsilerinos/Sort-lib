@@ -3,7 +3,15 @@
 
 int main() {
 
-	TestSortingAlgorithms();
+	int* array = nullptr;
+
+	sort_alg::CreateArray(array);
+	sort_alg::PrintArray(array);
+
+	sort_alg::MergeSort(array, 0, sort_alg::size - 1);
+	sort_alg::PrintArray(array);
+
+	delete[] array;
 
 	return 0;
 }
