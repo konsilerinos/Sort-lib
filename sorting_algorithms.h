@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <iomanip>
-#include <vector>
 
 //------------------------------------------------------------
 
@@ -154,7 +153,7 @@ namespace sort_alg {
 				return;
 			}
 		}
-		
+
 		// Рекурсивная сортировка
 		MergeSorting(array, start, start + (end - start) / 2);
 		MergeSorting(array, start + (end - start) / 2, end);
