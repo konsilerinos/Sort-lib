@@ -5,33 +5,42 @@
 
 //------------------------------------------------------------
 
-namespace sort_alg {
-	const int left = -10;
-	const int right = 10;
+namespace sort_lib {
+	const int left = -50;
+	const int right = 50;
 
 	const int size = 10;
 
 	//==============================================================================
 	//==============| Инициализация и вывод в стандартный поток
 
-	template <typename T> void CreateArray(T*& array) {
-		srand(time(NULL));
-		
-		array = new T[size];
+	namespace create_f {
 
-		for (int i = 0; i < size; i++) {
-			int whole_part = rand() % (right - left + 1) + left;
-			double fractional_part = static_cast<double>(1) / (rand() % (right - left + 1) + 1);
-			array[i] = whole_part + fractional_part;
-		}
-	}
-	template <typename T> void PrintArray(T array) {
-		for (int i = 0; i < size; i++) {
-			std::cout << std::left << std::setw(10) << std::setprecision(4) << array[i];
+		template <typename T> void CreateArray(T*& array) {
+			srand(time(NULL));
+
+			array = new T[size];
+
+			for (int i = 0; i < size; i++) {
+				int whole_part = rand() % (right - left + 1) + left;
+				double fractional_part = static_cast<double>(1) / (rand() % (right - left + 1) + 1);
+				array[i] = whole_part + fractional_part;
+			}
 		}
 
-		std::cout << std::endl;
 	}
+	namespace print_f {
+
+		template <typename T> void PrintArray(T array) {
+			for (int i = 0; i < size; i++) {
+				std::cout << std::left << std::setw(10) << std::setprecision(4) << array[i];
+			}
+
+			std::cout << std::endl;
+		}
+
+	}
+
 
 	//==============================================================================
 	//==============| Функции сортировки

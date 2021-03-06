@@ -3,13 +3,14 @@
 
 int main() {
 
-	int* array = nullptr;
+	double *array = nullptr;
 
-	sort_alg::CreateArray(array);
-	sort_alg::PrintArray(array);
+	sort_lib::create_f::CreateArray(array);
+	sort_lib::print_f::PrintArray(array);
 
-	sort_alg::MergeSorting(array, 0, sort_alg::size);
-	sort_alg::PrintArray(array);
+	sort_lib::MergeSorting(array, 0, sort_lib::size);
+
+	sort_lib::print_f::PrintArray(array);
 
 	delete[] array;
 
