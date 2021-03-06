@@ -144,58 +144,45 @@ namespace sort_alg {
 	//------------------------------------------------------------------------------
 	//--------------| Сортировка слиянием
 
-	namespace aux_alg {
-		template<typename T> void Merge(T* array, int left, int right) {
-			int m = (left + right) / 2;
-
-			if (left >= right || m < left || m > right) {
+	template <typename T> void MergeSorting(T* array, int start, int end) {
+		if (end - start < 2) {
+			return; // Сортировка не требуется
+		}
+		else if (end - start == 2) {
+			if (array[start] > array[start + 1]) {
+				aux_alg::Swap(array[start], array[start + 1]); // Сортировка массива из двух элементов
 				return;
 			}
-			if (right == left + 1 && array[left] > array[right]) {
-				aux_alg::Swap(array[left], array[right]);
-				return;
-			}
+		}
+		
+		// Рекурсивная сортировка
+		MergeSorting(array, start, start + (end - start) / 2);
+		MergeSorting(array, start + (end - start) / 2, end);
 
-			T* temp = new T[right + 1];
-			for (int i = 0; i < right + 1; i++) {
-				temp[i] = array[left + i];
-			}
+		T* temp = new T[end - start];
+		int b1 = start;
+		int e1 = start + (end - start) / 2;
+		int b2 = e1;
 
-			int j = 0;
-			int k = m - left + 1;
-			for (int i = left; i <= right; i++) {
-				if (j > m - left) {
-					array[i] = temp[k];
-					k++;
-				}
-				else if (k > right - left) {
-					array[i] = temp[j];
-					j++;
-				}
-				else {
-					if (temp[j] < temp[k]) {
-						array[i] = temp[j];
-						j++;
-					}
-					else {
-						array[i] = temp[k];
-						k++;
-					}
-				}
+		for (int i = 0; i < end - start; i++) {
+			// b1 >= e1 - выход за пределы массива 1
+			// b2 < end && array[b2] <= array[b1]) - проверка для элемента массива 2
+			if (b1 >= e1 || (b2 < end && array[b2] <= array[b1])) {
+				temp[i] = array[b2];
+				b2++;
+			}
+			else {
+				temp[i] = array[b1];
+				b1++;
 			}
 		}
-	}
 
-	template<typename T> void MergeSort(T array, int left, int right) {
-		if (left >= right) {
-			return;
+		// Изменение промежутка исходного массива
+		for (int i = start; i < end; i++) {
+			array[i] = temp[i - start];
 		}
 
-		int m = (left + right) / 2;
-
-		MergeSort(array, left, m);
-		MergeSort(array, m + 1, right);
-		Merge(array, left, right);
+		delete[] temp;
 	}
 
 }
