@@ -6,10 +6,13 @@
 //------------------------------------------------------------
 
 namespace sort_lib {
-	const int left = -50;
-	const int right = 50;
 
-	const int size = 10;
+	namespace data {
+		static int left = -50;
+		static int right = 50;
+
+		static int size = 7;
+	}
 
 	//==============================================================================
 	//==============| Инициализация и вывод в стандартный поток
@@ -19,11 +22,11 @@ namespace sort_lib {
 		template <typename T> void CreateArray(T*& array) {
 			srand(time(NULL));
 
-			array = new T[size];
+			array = new T[data::size];
 
-			for (int i = 0; i < size; i++) {
-				int whole_part = rand() % (right - left + 1) + left;
-				double fractional_part = static_cast<double>(1) / (rand() % (right - left + 1) + 1);
+			for (int i = 0; i < data::size; i++) {
+				int whole_part = rand() % (data::right - data::left + 1) + data::left;
+				double fractional_part = static_cast<double>(1) / (rand() % (data::right - data::left + 1) + 1);
 				array[i] = whole_part + fractional_part;
 			}
 		}
@@ -32,7 +35,7 @@ namespace sort_lib {
 	namespace print_f {
 
 		template <typename T> void PrintArray(T array) {
-			for (int i = 0; i < size; i++) {
+			for (int i = 0; i < data::size; i++) {
 				std::cout << std::left << std::setw(10) << std::setprecision(4) << array[i];
 			}
 
@@ -68,8 +71,8 @@ namespace sort_lib {
 	}
 
 	template <typename T> void SortingByChoice(T array) {
-		for (int i = 0; i < size; i++) {
-			int index = aux_alg::FindMinElementIndex(array, i, size);
+		for (int i = 0; i < data::size; i++) {
+			int index = aux_alg::FindMinElementIndex(array, i, data::size);
 			if (i != index) {
 				aux_alg::Swap(array[i], array[index]);
 			}
@@ -96,7 +99,7 @@ namespace sort_lib {
 	}
 
 	template <typename T> void SortingBySimpleInserts(T array) {
-		for (int i = 0; i < size - 1 ; i++) {
+		for (int i = 0; i < data::size - 1 ; i++) {
 			aux_alg::SimpleInsert(array, i);
 		}
 	}
@@ -144,7 +147,7 @@ namespace sort_lib {
 	}
 
 	template <typename T> void SortingByBinaryInserts(T array) {
-		for (int i = 0; i < size - 1; i++) {
+		for (int i = 0; i < data::size - 1; i++) {
 			aux_alg::BinaryInsert(array, i);
 		}
 	}
@@ -197,8 +200,8 @@ namespace sort_lib {
 	//--------------| Сортировка стандартным обменом
 
 	template <typename T> void BubbleSorting(T array) {
-		for (int i = 0; i < size - 1; i++) {
-			for (int j = i + 1; j < size; j++) {
+		for (int i = 0; i < data::size - 1; i++) {
+			for (int j = i + 1; j < data::size; j++) {
 				if (array[j] < array[j-1]) {
 					aux_alg::Swap(array[j], array[j - 1]);
 				}
@@ -209,7 +212,7 @@ namespace sort_lib {
 	//------------------------------------------------------------------------------
 	//--------------| Быстрая сортировка (Хоара)
 
-	template <typename T> void QuickSorting(T* array, int left, int right) {
+	template <typename T> void QuickSorting(T* array, int left, int right) {		
 		T value = array[left];
 
 		int left_c = left;
@@ -252,7 +255,6 @@ namespace sort_lib {
 		}
 
 	}
-
 
 }
 
