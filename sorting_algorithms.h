@@ -193,5 +193,66 @@ namespace sort_lib {
 		delete[] temp;
 	}
 
+	//------------------------------------------------------------------------------
+	//--------------| Сортировка стандартным обменом
+
+	template <typename T> void BubbleSorting(T array) {
+		for (int i = 0; i < size - 1; i++) {
+			for (int j = i + 1; j < size; j++) {
+				if (array[j] < array[j-1]) {
+					aux_alg::Swap(array[j], array[j - 1]);
+				}
+			}
+		}
+	}
+
+	//------------------------------------------------------------------------------
+	//--------------| Быстрая сортировка (Хоара)
+
+	template <typename T> void QuickSorting(T* array, int left, int right) {
+		T value = array[left];
+
+		int left_c = left;
+		int right_c = right;
+
+		while (left < right)
+		{
+			while ((array[right] >= value) && (left < right)) {
+				right--;
+			}
+				
+			if (left != right)
+			{
+				array[left] = array[right];
+				left++;
+			}
+
+			while ((array[left] <= value) && (left < right)) {
+				left++;
+			}
+			
+			if (left != right)
+			{
+				array[right] = array[left];
+				right--;
+			}
+		}
+
+		array[left] = value;
+
+		int new_left = left;
+		left = left_c;
+		right = right_c;
+
+		if (left < new_left) {
+			QuickSorting(array, left, new_left - 1);
+		}
+		if (right > new_left) {
+			QuickSorting(array, new_left + 1, right);
+		}
+
+	}
+
+
 }
 

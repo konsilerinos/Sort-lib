@@ -8,7 +8,7 @@ int main() {
 	sort_lib::create_f::CreateArray(array);
 	sort_lib::print_f::PrintArray(array);
 
-	sort_lib::MergeSorting(array, 0, sort_lib::size);
+	sort_lib::QuickSorting(array, 0, sort_lib::size - 1);
 
 	sort_lib::print_f::PrintArray(array);
 
