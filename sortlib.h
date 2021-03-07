@@ -12,6 +12,16 @@ namespace sort_lib {
 		static int right = 50;
 
 		static int size = 7;
+
+		static void SetLeftRightSize(int new_left, int new_right, int new_size) {
+			if (new_left > new_right || size < 0) {
+				exit(1);
+			}
+
+			left = new_left;
+			right = new_right;
+			size = new_size;
+		}
 	}
 
 	//==============================================================================

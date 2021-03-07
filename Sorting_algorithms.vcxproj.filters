@@ -18,12 +18,12 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sorting_algorithms.cpp">
+    <ClCompile Include="sortlib.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sorting_algorithms.h">
+    <ClInclude Include="sortlib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
