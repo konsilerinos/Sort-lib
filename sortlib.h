@@ -2,30 +2,21 @@
 
 #include <iostream>
 #include <iomanip>
+#include <chrono>
+#include <windows.h>
 
 //------------------------------------------------------------
 
 namespace sort_lib {
 
 	namespace data {
+
 		static int left = -50;
 		static int right = 50;
 
 		static int size = 7;
-
-		static void SetLeftRightSize(int new_left, int new_right, int new_size) {
-			if (new_left > new_right || size < 0) {
-				exit(1);
-			}
-
-			left = new_left;
-			right = new_right;
-			size = new_size;
-		}
 	}
 
-	//==============================================================================
-	//==============| Инициализация и вывод в стандартный поток
 
 	namespace create_f {
 
@@ -54,19 +45,14 @@ namespace sort_lib {
 
 	}
 
-
-	//==============================================================================
-	//==============| Функции сортировки
-	
-	//------------------------------------------------------------------------------
-	//--------------| Сортировка простым выбором
-
 	namespace aux_alg {
+
 		template <typename T>void Swap(T& digit_1, T& digit_2) {
 			digit_1 = digit_1 + digit_2;
 			digit_2 = digit_1 - digit_2;
 			digit_1 = digit_1 - digit_2;
 		}
+
 		template <typename T> int FindMinElementIndex(T array, int left, int right) {
 			int min_index = left;
 
@@ -78,21 +64,7 @@ namespace sort_lib {
 
 			return min_index;
 		}
-	}
 
-	template <typename T> void SortingByChoice(T array) {
-		for (int i = 0; i < data::size; i++) {
-			int index = aux_alg::FindMinElementIndex(array, i, data::size);
-			if (i != index) {
-				aux_alg::Swap(array[i], array[index]);
-			}
-		}
-	}
-
-	//------------------------------------------------------------------------------
-	//--------------| Сортировка простой вставкой
-
-	namespace aux_alg {
 		template <typename T1> void SimpleInsert(T1 array, int i) {
 
 			int index = i + 1;
@@ -106,47 +78,42 @@ namespace sort_lib {
 			array[index] = value;
 
 		}
-	}
 
-	template <typename T> void SortingBySimpleInserts(T array) {
-		for (int i = 0; i < data::size - 1 ; i++) {
-			aux_alg::SimpleInsert(array, i);
-		}
-	}
-
-	//------------------------------------------------------------------------------
-	//--------------| Сортировка бинарной вставкой
-
-	namespace aux_alg {
 		template <typename T1, typename T2> int BinaryMinFind(T1 array, T2 value, int left, int right) {
+
 			int m = 0;
 
 			while (right - left > 1) {
+
 				m = (left + right) / 2;
 
 				if (array[m] < value) {
+
 					left = m;
 				}
 				else {
+
 					right = m;
 				}
 			}
 
 			if (array[left] <= value) {
+
 				return right;
 			}
 			else {
+
 				return left;
 			}
-
 		}
+
 		template <typename T> void BinaryInsert(T array, int i) {
-			
+
 			int index = i + 1;
 			int value = array[index];
 			int up = BinaryMinFind(array, array[index], 0, index);
 
-			while (index > up){
+			while (index > up) {
 				array[index] = array[index - 1];
 				index--;
 			}
@@ -156,115 +123,241 @@ namespace sort_lib {
 		}
 	}
 
-	template <typename T> void SortingByBinaryInserts(T array) {
-		for (int i = 0; i < data::size - 1; i++) {
-			aux_alg::BinaryInsert(array, i);
-		}
-	}
+	namespace algo {
 
-	//------------------------------------------------------------------------------
-	//--------------| Сортировка слиянием
+		namespace choise {
 
-	template <typename T> void MergeSorting(T* array, int start, int end) {
-		if (end - start < 2) {
-			return; // Сортировка не требуется
-		}
-		else if (end - start == 2) {
-			if (array[start] > array[start + 1]) {
-				aux_alg::Swap(array[start], array[start + 1]); // Сортировка массива из двух элементов
-				return;
-			}
-		}
+			template <typename T> void SortingByChoice(T array) {
 
-		// Рекурсивная сортировка
-		MergeSorting(array, start, start + (end - start) / 2);
-		MergeSorting(array, start + (end - start) / 2, end);
+				for (int i = 0; i < data::size; i++) {
 
-		T* temp = new T[end - start];
-		int b1 = start;
-		int e1 = start + (end - start) / 2;
-		int b2 = e1;
+					int index = aux_alg::FindMinElementIndex(array, i, data::size);
+					if (i != index) {
 
-		for (int i = 0; i < end - start; i++) {
-			// b1 >= e1 - выход за пределы массива 1
-			// b2 < end && array[b2] <= array[b1]) - проверка для элемента массива 2
-			if (b1 >= e1 || (b2 < end && array[b2] <= array[b1])) {
-				temp[i] = array[b2];
-				b2++;
-			}
-			else {
-				temp[i] = array[b1];
-				b1++;
-			}
-		}
-
-		// Изменение промежутка исходного массива
-		for (int i = start; i < end; i++) {
-			array[i] = temp[i - start];
-		}
-
-		delete[] temp;
-	}
-
-	//------------------------------------------------------------------------------
-	//--------------| Сортировка стандартным обменом
-
-	template <typename T> void BubbleSorting(T array) {
-		for (int i = 0; i < data::size - 1; i++) {
-			for (int j = i + 1; j < data::size; j++) {
-				if (array[j] < array[j-1]) {
-					aux_alg::Swap(array[j], array[j - 1]);
+						aux_alg::Swap(array[i], array[index]);
+					}
 				}
 			}
+			template <typename T> std::chrono::nanoseconds TestSortingByChoice(T array) {
+
+				std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
+
+				SortingByChoice(array);
+
+				std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
+
+				Sleep(1);
+
+				std::chrono::nanoseconds resultTime = std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+				return resultTime;
+			}
+		}
+
+		namespace simple_inserts {
+
+			template <typename T> void SortingBySimpleInserts(T array) {
+
+				for (int i = 0; i < data::size - 1; i++) {
+
+					aux_alg::SimpleInsert(array, i);
+				}
+			}
+			template <typename T> std::chrono::nanoseconds TestSortingBySimpleInserts(T array) {
+
+				std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
+
+				SortingBySimpleInserts(array);
+
+				std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
+
+				Sleep(1);
+
+				std::chrono::nanoseconds resultTime = std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+				return resultTime;
+			}
+		}
+
+		namespace binary_inserts {
+
+			template <typename T> void SortingByBinaryInserts(T array) {
+
+				for (int i = 0; i < data::size - 1; i++) {
+
+					aux_alg::BinaryInsert(array, i);
+				}
+			}
+			template <typename T> std::chrono::nanoseconds TestSortingByBinaryInserts(T array) {
+
+				std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
+
+				SortingByBinaryInserts(array);
+
+				std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
+
+				Sleep(1);
+
+				std::chrono::nanoseconds resultTime = std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+				return resultTime;
+			}
+		}
+
+		namespace merge {
+
+			template <typename T> void MergeSorting(T* array, int start, int end) {
+
+				if (end - start < 2) {
+
+					return; // Сортировка не требуется
+				}
+				else if (end - start == 2) {
+
+					if (array[start] > array[start + 1]) {
+
+						aux_alg::Swap(array[start], array[start + 1]); // Сортировка массива из двух элементов
+						return;
+					}
+				}
+
+				// Рекурсивная сортировка
+				MergeSorting(array, start, start + (end - start) / 2);
+				MergeSorting(array, start + (end - start) / 2, end);
+
+				T* temp = new T[end - start];
+				int b1 = start;
+				int e1 = start + (end - start) / 2;
+				int b2 = e1;
+
+				for (int i = 0; i < end - start; i++) {
+
+					// b1 >= e1 - выход за пределы массива 1
+					// b2 < end && array[b2] <= array[b1]) - проверка для элемента массива 2
+					if (b1 >= e1 || (b2 < end && array[b2] <= array[b1])) {
+
+						temp[i] = array[b2];
+						b2++;
+					}
+					else {
+
+						temp[i] = array[b1];
+						b1++;
+					}
+				}
+
+				// Изменение промежутка исходного массива
+				for (int i = start; i < end; i++) {
+
+					array[i] = temp[i - start];
+				}
+
+				delete[] temp;
+			}
+			template <typename T> std::chrono::nanoseconds TestMergeSorting(T array) {
+
+				std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
+
+				MergeSorting(array, 0, data::size);
+
+				std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
+
+				Sleep(1);
+
+				std::chrono::nanoseconds resultTime = std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+				return resultTime;
+			}
+		}
+
+		namespace bubble {
+
+			template <typename T> void BubbleSorting(T array) {
+
+				for (int i = 0; i < data::size - 1; i++) {
+
+					for (int j = i + 1; j < data::size; j++) {
+
+						if (array[j] < array[j - 1]) {
+
+							aux_alg::Swap(array[j], array[j - 1]);
+						}
+					}
+				}
+			}
+			template <typename T> std::chrono::nanoseconds TestBubbleSorting(T array) {
+
+				std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
+
+				BubbleSorting(array);
+
+				std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
+
+				Sleep(1);
+
+				std::chrono::nanoseconds resultTime = std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+				return resultTime;
+			}
+		}
+
+		namespace quick_sort {
+
+			template <typename T> void QuickSorting(T* array, int left, int right) {
+
+				T value = array[left];
+
+				int left_c = left;
+				int right_c = right;
+
+				while (left < right)
+				{
+					while ((array[right] >= value) && (left < right)) {
+						right--;
+					}
+
+					if (left != right)
+					{
+						array[left] = array[right];
+						left++;
+					}
+
+					while ((array[left] <= value) && (left < right)) {
+						left++;
+					}
+
+					if (left != right)
+					{
+						array[right] = array[left];
+						right--;
+					}
+				}
+
+				array[left] = value;
+
+				int new_left = left;
+				left = left_c;
+				right = right_c;
+
+				if (left < new_left) {
+					QuickSorting(array, left, new_left - 1);
+				}
+				if (right > new_left) {
+					QuickSorting(array, new_left + 1, right);
+				}
+
+			}
+			template <typename T> std::chrono::nanoseconds TestQuickSorting(T array) {
+
+				std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
+
+				QuickSorting(array, 0, data::size - 1);
+
+				std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
+
+				Sleep(1);
+
+				std::chrono::nanoseconds resultTime = std::chrono::duration_cast<std::chrono::nanoseconds>(endTime - startTime);
+				return resultTime;
+			}
 		}
 	}
 
-	//------------------------------------------------------------------------------
-	//--------------| Быстрая сортировка (Хоара)
-
-	template <typename T> void QuickSorting(T* array, int left, int right) {		
-		T value = array[left];
-
-		int left_c = left;
-		int right_c = right;
-
-		while (left < right)
-		{
-			while ((array[right] >= value) && (left < right)) {
-				right--;
-			}
-				
-			if (left != right)
-			{
-				array[left] = array[right];
-				left++;
-			}
-
-			while ((array[left] <= value) && (left < right)) {
-				left++;
-			}
-			
-			if (left != right)
-			{
-				array[right] = array[left];
-				right--;
-			}
-		}
-
-		array[left] = value;
-
-		int new_left = left;
-		left = left_c;
-		right = right_c;
-
-		if (left < new_left) {
-			QuickSorting(array, left, new_left - 1);
-		}
-		if (right > new_left) {
-			QuickSorting(array, new_left + 1, right);
-		}
-
-	}
 
 }
 
