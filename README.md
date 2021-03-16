@@ -179,7 +179,7 @@ template <typename T> void MergeSorting(T* array, int start, int end) {
 
     if (array[start] > array[start + 1]) {
 
-      aux_fun::Swap(array[start], array[start + 1]);
+      Swap(array[start], array[start + 1]);
     }
   }
 
