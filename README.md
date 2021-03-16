@@ -1,4 +1,4 @@
-# Пишем библиотеку для сортировки линейных структур данных
+# Пишем библиотеку для сортировки линейных структур данных на языке С++
 Задача: реализовать известные алгоритмы сортировки.
 
 ## Алгоритмы
@@ -248,6 +248,40 @@ template <typename T> void ExchangeSorting(T array) {
 Сложность вычислений (худшая): **O(n²)**
 
 Реализация на языке С++
+```C++
+template <typename T> void ShakerSorting(T array) {
+
+  int left = 0;
+  int right = size - 1;
+
+  while (left < right) {
+
+    int lastSwap = 0;
+
+    for (int i = left; i < right; i++) {
+
+      if (array[i] > array[i + 1]) {
+
+        Swap(array[i], array[i + 1]);
+        lastSwap = i;
+      }
+    }
+
+    right = lastSwap;
+
+    for (int i = right; i > left; i--) {
+
+      if (array[i - 1] > array[i]) {
+
+        Swap(array[i - 1], array[i]);
+        lastSwap = i;
+      }
+    }
+
+    left = lastSwap;
+  }
+}
+```
 
 ## Сортировка Шелла
 
@@ -255,20 +289,75 @@ template <typename T> void ExchangeSorting(T array) {
 
 Сложность вычислений (худшая): **O(n²)**
 
+Реализация на языке С++
+```C++
+template <typename T> void ShellSorting(T array) {
+
+  for (int s = size; s > 0; s /= 2) {
+  
+    for (int i = 0; i < size; i++) {
+  
+      for (int j = i + s; j < size; j += s) {
+  
+        if (array[i] > array[j]) {
+  
+          Swap(array[i], array[j]);
+        }
+      }
+    }
+  }
+}
+```
+
 ## Быстрая сортировка (Хоара)
 
 Суть алгоритма: выбор опорного элемента (нулевой), деление массива на три части, рекурсивная сортировка.
 
 Сложность вычислений (худшая): **O(n²)**
 
+Реализация на языке С++
+```C++
+template <typename T> void QuickSorting(T* array, int left, int right) {
 
+  T value = array[left];
 
+  int left_c = left;
+  int right_c = right;
 
+  while (left < right) {
 
+    while ((array[right] >= value) && (left < right)) {
 
+      right--;
+    }
 
+    if (left != right) {
 
+      array[left] = array[right];
+    }
 
+    while ((array[left] <= value) && (left < right)) {
 
+      left++;
+    }
 
+    array[right] = array[left];
+    right--;
+  }
 
+  array[left] = value;
+
+  int new_left = left;
+  left = left_c;
+  right = right_c;
+
+  if (left < new_left) {
+
+    QuickSorting(array, left, new_left - 1);
+  }
+  if (right > new_left) {
+
+    QuickSorting(array, new_left + 1, right);
+  }
+}
+```
