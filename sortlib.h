@@ -231,111 +231,100 @@ namespace sort_lib {
 		}
 	}
 
-	namespace sort {
+	template <typename T> void ChoiseSorting(T array) {
 
-		template <typename T> void ChoiseSorting(T array) {
+		for (int i = 0; i < data::size; i++) {
+
+			int index = aux_fun::FindMinElementIndex(array, i, data::size);
+
+			if (index != i) {
+
+				aux_fun::Swap(array[index], array[i]);
+			}
+		}
+	}
+	template <typename T> void InsertSorting(T array) {
+
+		for (int i = 1; i < data::size; i++) {
+
+			aux_fun::InsertElement(array, i);
+		}
+	}
+	template <typename T> void BinaryInsertSorting(T array) {
+
+		for (int i = 1; i < data::size - 1; i++) {
+
+			aux_fun::BinaryInsert(array, i);
+		}
+	}
+	template <typename T> void MergeSorting(T array) {
+
+		aux_fun::MergeSorting(array, 0, data::size);
+	}
+	template <typename T> void ExchangeSorting(T array) {
+
+		for (int i = 0; i < data::size; i++) {
+
+			for (int j = 0; j < data::size - 1; j++) {
+
+				if (array[j] > array[j + 1]) {
+
+					aux_fun::Swap(array[j], array[j + 1]);
+				}
+			}
+		}
+	}
+	template <typename T> void ShakerSorting(T array) {
+
+		int left = 0;
+		int right = data::size - 1;
+
+		while (left < right) {
+
+			int lastSwap = 0;
+
+			for (int i = left; i < right; i++) {
+
+				if (array[i] > array[i + 1]) {
+
+					aux_fun::Swap(array[i], array[i + 1]);
+					lastSwap = i;
+				}
+			}
+
+			right = lastSwap;
+
+			for (int i = right; i > left; i--) {
+
+				if (array[i - 1] > array[i]) {
+
+					aux_fun::Swap(array[i - 1], array[i]);
+					lastSwap = i;
+				}
+			}
+
+			left = lastSwap;
+		}
+	}
+	template <typename T> void ShellSorting(T array) {
+
+		for (int s = data::size; s > 0; s /= 2) {
 
 			for (int i = 0; i < data::size; i++) {
 
-				int index = aux_fun::FindMinElementIndex(array, i, data::size);
+				for (int j = i + s; j < data::size; j += s) {
 
-				if (index != i) {
+					if (array[i] > array[j]) {
 
-					aux_fun::Swap(array[index], array[i]);
-				}
-			}
-		}
-
-		template <typename T> void InsertSorting(T array) {
-
-			for (int i = 1; i < data::size; i++) {
-
-				aux_fun::InsertElement(array, i);
-			}
-		}
-
-		template <typename T> void BinaryInsertSorting(T array) {
-
-			for (int i = 1; i < data::size - 1; i++) {
-
-				aux_fun::BinaryInsert(array, i);
-			}
-		}
-
-		template <typename T> void MergeSorting(T array) {
-
-			aux_fun::MergeSorting(array, 0, data::size);
-		}
-
-		template <typename T> void ExchangeSorting(T array) {
-
-			for (int i = 0; i < data::size; i++) {
-
-				for (int j = 0; j < data::size - 1; j++) {
-
-					if (array[j] > array[j + 1]) {
-
-						aux_fun::Swap(array[j], array[j + 1]);
+						aux_fun::Swap(array[i], array[j]);
 					}
 				}
 			}
 		}
+	}
+	template <typename T> void QuickSorting(T array) {
 
-		template <typename T> void ShakerSorting(T array) {
-
-			int left = 0;
-			int right = data::size - 1;
-
-			while (left < right) {
-
-				int lastSwap = 0;
-
-				for (int i = left; i < right; i++) {
-
-					if (array[i] > array[i + 1]) {
-
-						aux_fun::Swap(array[i], array[i + 1]);
-						lastSwap = i;
-					}
-				}
-
-				right = lastSwap;
-
-				for (int i = right; i > left; i--) {
-
-					if (array[i - 1] > array[i]) {
-
-						aux_fun::Swap(array[i - 1], array[i]);
-						lastSwap = i;
-					}
-				}
-
-				left = lastSwap;
-			}
-		}
-
-		template <typename T> void ShellSorting(T array) {
-
-			for (int s = data::size; s > 0; s /= 2) {
-
-				for (int i = 0; i < data::size; i++) {
-
-					for (int j = i + s; j < data::size; j += s) {
-
-						if (array[i] > array[j]) {
-
-							aux_fun::Swap(array[i], array[j]);
-						}
-					}
-				}
-			}
-		}
-
-		template <typename T> void QuickSorting(T array) {
-
-			aux_fun::QuickSorting(array, 0, data::size - 1);
-		}
-		
+		aux_fun::QuickSorting(array, 0, data::size - 1);
 	}
 
 	namespace time {
@@ -346,7 +335,7 @@ namespace sort_lib {
 
 				std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
 
-				sort::ChoiseSorting(array);
+				ChoiseSorting(array);
 
 				std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
 
@@ -359,7 +348,7 @@ namespace sort_lib {
 
 				std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
 
-				sort::InsertSorting(array);
+				InsertSorting(array);
 
 				std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
 
@@ -372,7 +361,7 @@ namespace sort_lib {
 
 				std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
 
-				sort::BinaryInsertSorting(array);
+				BinaryInsertSorting(array);
 
 				std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
 
@@ -385,7 +374,7 @@ namespace sort_lib {
 
 				std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
 
-				sort::MergeSorting(array);
+				MergeSorting(array);
 
 				std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
 
@@ -398,7 +387,7 @@ namespace sort_lib {
 
 				std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
 
-				sort::ExchangeSorting(array);
+				ExchangeSorting(array);
 
 				std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
 
@@ -411,7 +400,7 @@ namespace sort_lib {
 
 				std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
 
-				sort::ShakerSorting(array);
+				ShakerSorting(array);
 
 				std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
 
@@ -424,7 +413,7 @@ namespace sort_lib {
 
 				std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
 
-				sort::ShellSorting(array);
+				ShellSorting(array);
 
 				std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
 
@@ -437,7 +426,7 @@ namespace sort_lib {
 
 				std::chrono::steady_clock::time_point startTime = std::chrono::steady_clock::now();
 
-				sort::QuickSorting(array);
+				QuickSorting(array);
 
 				std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();
 
