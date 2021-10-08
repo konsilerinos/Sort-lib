@@ -1,4 +1,4 @@
-#  ⚡ Cheat sheet for sorting algorithms 
+#  Шпаргалка для алгоритмов сортировки
 
 ## Алгоритмы
 
