@@ -1,4 +1,4 @@
-# 123456
+#  ⚡ Cheat sheet for sorting algorithms 
 
 ## Алгоритмы
 
