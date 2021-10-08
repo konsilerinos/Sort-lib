@@ -360,3 +360,5 @@ template <typename T> void QuickSorting(T* array, int left, int right) {
   }
 }
 ```
+
+### ©️ Konsilerinos
