@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sort-lib: Исходный файл sort.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Sort-lib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('sort_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">sort.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="sort_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classSort.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="classSort.html">Sort</a> {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classSort.html#a44f37584b86b55680816f4642583660f">   14</a></span>    std::chrono::milliseconds <a class="code hl_variable" href="classSort.html#a44f37584b86b55680816f4642583660f">choiseSortTime</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classSort.html#abfbf29a53045cc012dcde1fe2126aaae">   18</a></span>    std::chrono::milliseconds <a class="code hl_variable" href="classSort.html#abfbf29a53045cc012dcde1fe2126aaae">insertSortTime</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classSort.html#aea3f087a962391d3625e26299a47b5b6">   22</a></span>    std::chrono::milliseconds <a class="code hl_variable" href="classSort.html#aea3f087a962391d3625e26299a47b5b6">mergeSortTime</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classSort.html#ab513b934c634ed91324e0c6d69cc0741">   26</a></span>    std::chrono::milliseconds <a class="code hl_variable" href="classSort.html#ab513b934c634ed91324e0c6d69cc0741">bubbleSortTime</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classSort.html#af3c7afb68fcfc0f6b894ae1749da2817">   30</a></span>    std::chrono::milliseconds <a class="code hl_variable" href="classSort.html#af3c7afb68fcfc0f6b894ae1749da2817">shakerSortTime</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classSort.html#a439227feff9d7f55384e8780cfc2eb82">   35</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classSort.html#a439227feff9d7f55384e8780cfc2eb82">size</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSort.html#a3512b0411b1929bb300c15ff044281a5">Swap</a>(<span class="keywordtype">int</span>&amp; digit1, <span class="keywordtype">int</span>&amp; digit2);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classSort.html#aed9f9c1e75665902d7bac32633e36afa">FindMinElementIndex</a>(std::vector&lt;int&gt;&amp; array, <span class="keywordtype">int</span> left, <span class="keywordtype">int</span> right);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSort.html#a71c19ca63eac1d5978c63d3a7fcd03e1">InsertElement</a>(std::vector&lt;int&gt;&amp; array, <span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSort.html#aff9023b467693cd6d27c7cab42a0fbe1">MergeSort</a>(std::vector&lt;int&gt;&amp; array, <span class="keywordtype">int</span> start, <span class="keywordtype">int</span> end);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    std::chrono::milliseconds <a class="code hl_function" href="classSort.html#abb9ff8304b0f5473918afebeefdef7eb">ChoiseSort</a>(std::vector&lt;int&gt;&amp; array);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    std::chrono::milliseconds <a class="code hl_function" href="classSort.html#ae736baa9ec9b55cbf986b9466e1a8e35">InsertSort</a>(std::vector&lt;int&gt;&amp; array);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    std::chrono::milliseconds <a class="code hl_function" href="classSort.html#a72ca2bc2c0aca83252ce81f31ef1003d">BubbleSort</a>(std::vector&lt;int&gt;&amp; array);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    std::chrono::milliseconds <a class="code hl_function" href="classSort.html#a65bd6289dccda81db5e068eaa5c34a86">ShakerSort</a>(std::vector&lt;int&gt;&amp; array);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSort.html#ab2351becdc147384a116f2cf52ec76d0">WriteArray</a>(std::vector&lt;int&gt;&amp; array);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    std::chrono::milliseconds <a class="code hl_function" href="classSort.html#aff9023b467693cd6d27c7cab42a0fbe1">MergeSort</a>(std::vector&lt;int&gt;&amp; array);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSort.html#a7539471b5db19eab3a9cbd79e6dd473e">RunTimeTest</a>(<span class="keywordtype">int</span> <a class="code hl_variable" href="classSort.html#a439227feff9d7f55384e8780cfc2eb82">size</a>);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSort.html#a7f3266359c6453fc10f9a8deb6436551">PrintResults</a>();</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>};</div>
+<div class="ttc" id="aclassSort_html"><div class="ttname"><a href="classSort.html">Sort</a></div><div class="ttdoc">Класс, содержащий алгоритмы сортировки, а также метод их тестирования</div><div class="ttdef"><b>Definition:</b> <a href="sort_8h_source.html#l00008">sort.h:8</a></div></div>
+<div class="ttc" id="aclassSort_html_a3512b0411b1929bb300c15ff044281a5"><div class="ttname"><a href="classSort.html#a3512b0411b1929bb300c15ff044281a5">Sort::Swap</a></div><div class="ttdeci">void Swap(int &amp;digit1, int &amp;digit2)</div><div class="ttdoc">Обмен значений двух чисел</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00011">sort.cpp:11</a></div></div>
+<div class="ttc" id="aclassSort_html_a439227feff9d7f55384e8780cfc2eb82"><div class="ttname"><a href="classSort.html#a439227feff9d7f55384e8780cfc2eb82">Sort::size</a></div><div class="ttdeci">int size</div><div class="ttdoc">Размер вектора, используется для вывода информации о результатах тестирование</div><div class="ttdef"><b>Definition:</b> <a href="sort_8h_source.html#l00035">sort.h:35</a></div></div>
+<div class="ttc" id="aclassSort_html_a44f37584b86b55680816f4642583660f"><div class="ttname"><a href="classSort.html#a44f37584b86b55680816f4642583660f">Sort::choiseSortTime</a></div><div class="ttdeci">std::chrono::milliseconds choiseSortTime</div><div class="ttdoc">Время в миллисекундах, сортировка выбором</div><div class="ttdef"><b>Definition:</b> <a href="sort_8h_source.html#l00014">sort.h:14</a></div></div>
+<div class="ttc" id="aclassSort_html_a65bd6289dccda81db5e068eaa5c34a86"><div class="ttname"><a href="classSort.html#a65bd6289dccda81db5e068eaa5c34a86">Sort::ShakerSort</a></div><div class="ttdeci">std::chrono::milliseconds ShakerSort(std::vector&lt; int &gt; &amp;array)</div><div class="ttdoc">Сортировка перемешиванием, шейкерная</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00218">sort.cpp:218</a></div></div>
+<div class="ttc" id="aclassSort_html_a71c19ca63eac1d5978c63d3a7fcd03e1"><div class="ttname"><a href="classSort.html#a71c19ca63eac1d5978c63d3a7fcd03e1">Sort::InsertElement</a></div><div class="ttdeci">void InsertElement(std::vector&lt; int &gt; &amp;array, int index)</div><div class="ttdoc">Вставка элемента по индексу в вектор по возрастанию</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00046">sort.cpp:46</a></div></div>
+<div class="ttc" id="aclassSort_html_a72ca2bc2c0aca83252ce81f31ef1003d"><div class="ttname"><a href="classSort.html#a72ca2bc2c0aca83252ce81f31ef1003d">Sort::BubbleSort</a></div><div class="ttdeci">std::chrono::milliseconds BubbleSort(std::vector&lt; int &gt; &amp;array)</div><div class="ttdoc">Сортировка обменом, пузырьковая</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00185">sort.cpp:185</a></div></div>
+<div class="ttc" id="aclassSort_html_a7539471b5db19eab3a9cbd79e6dd473e"><div class="ttname"><a href="classSort.html#a7539471b5db19eab3a9cbd79e6dd473e">Sort::RunTimeTest</a></div><div class="ttdeci">void RunTimeTest(int size)</div><div class="ttdoc">Замер времени работы алгоритмов сортировки</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00320">sort.cpp:320</a></div></div>
+<div class="ttc" id="aclassSort_html_a7f3266359c6453fc10f9a8deb6436551"><div class="ttname"><a href="classSort.html#a7f3266359c6453fc10f9a8deb6436551">Sort::PrintResults</a></div><div class="ttdeci">void PrintResults()</div><div class="ttdoc">Вывод на экран информации о работе алгоритмов сортировки</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00386">sort.cpp:386</a></div></div>
+<div class="ttc" id="aclassSort_html_ab2351becdc147384a116f2cf52ec76d0"><div class="ttname"><a href="classSort.html#ab2351becdc147384a116f2cf52ec76d0">Sort::WriteArray</a></div><div class="ttdeci">void WriteArray(std::vector&lt; int &gt; &amp;array)</div><div class="ttdoc">Запись вектора случайными значениями</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00280">sort.cpp:280</a></div></div>
+<div class="ttc" id="aclassSort_html_ab513b934c634ed91324e0c6d69cc0741"><div class="ttname"><a href="classSort.html#ab513b934c634ed91324e0c6d69cc0741">Sort::bubbleSortTime</a></div><div class="ttdeci">std::chrono::milliseconds bubbleSortTime</div><div class="ttdoc">Время в миллисекундах, сортировка обменом (пузырьковая)</div><div class="ttdef"><b>Definition:</b> <a href="sort_8h_source.html#l00026">sort.h:26</a></div></div>
+<div class="ttc" id="aclassSort_html_abb9ff8304b0f5473918afebeefdef7eb"><div class="ttname"><a href="classSort.html#abb9ff8304b0f5473918afebeefdef7eb">Sort::ChoiseSort</a></div><div class="ttdeci">std::chrono::milliseconds ChoiseSort(std::vector&lt; int &gt; &amp;array)</div><div class="ttdoc">Сортировка выбором</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00130">sort.cpp:130</a></div></div>
+<div class="ttc" id="aclassSort_html_abfbf29a53045cc012dcde1fe2126aaae"><div class="ttname"><a href="classSort.html#abfbf29a53045cc012dcde1fe2126aaae">Sort::insertSortTime</a></div><div class="ttdeci">std::chrono::milliseconds insertSortTime</div><div class="ttdoc">Время в миллисекундах, сортировка вставками</div><div class="ttdef"><b>Definition:</b> <a href="sort_8h_source.html#l00018">sort.h:18</a></div></div>
+<div class="ttc" id="aclassSort_html_ae736baa9ec9b55cbf986b9466e1a8e35"><div class="ttname"><a href="classSort.html#ae736baa9ec9b55cbf986b9466e1a8e35">Sort::InsertSort</a></div><div class="ttdeci">std::chrono::milliseconds InsertSort(std::vector&lt; int &gt; &amp;array)</div><div class="ttdoc">Сортировка вставками</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00161">sort.cpp:161</a></div></div>
+<div class="ttc" id="aclassSort_html_aea3f087a962391d3625e26299a47b5b6"><div class="ttname"><a href="classSort.html#aea3f087a962391d3625e26299a47b5b6">Sort::mergeSortTime</a></div><div class="ttdeci">std::chrono::milliseconds mergeSortTime</div><div class="ttdoc">Время в миллисекундах, сортировка слиянием</div><div class="ttdef"><b>Definition:</b> <a href="sort_8h_source.html#l00022">sort.h:22</a></div></div>
+<div class="ttc" id="aclassSort_html_aed9f9c1e75665902d7bac32633e36afa"><div class="ttname"><a href="classSort.html#aed9f9c1e75665902d7bac32633e36afa">Sort::FindMinElementIndex</a></div><div class="ttdeci">int FindMinElementIndex(std::vector&lt; int &gt; &amp;array, int left, int right)</div><div class="ttdoc">Поиск индекса минимального элемента в векторе</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00025">sort.cpp:25</a></div></div>
+<div class="ttc" id="aclassSort_html_af3c7afb68fcfc0f6b894ae1749da2817"><div class="ttname"><a href="classSort.html#af3c7afb68fcfc0f6b894ae1749da2817">Sort::shakerSortTime</a></div><div class="ttdeci">std::chrono::milliseconds shakerSortTime</div><div class="ttdoc">Время в миллисекундах, сортировка перемешиванием (шейкерная)</div><div class="ttdef"><b>Definition:</b> <a href="sort_8h_source.html#l00030">sort.h:30</a></div></div>
+<div class="ttc" id="aclassSort_html_aff9023b467693cd6d27c7cab42a0fbe1"><div class="ttname"><a href="classSort.html#aff9023b467693cd6d27c7cab42a0fbe1">Sort::MergeSort</a></div><div class="ttdeci">void MergeSort(std::vector&lt; int &gt; &amp;array, int start, int end)</div><div class="ttdoc">Сортировка слиянием. Не возвращает времени выполнения</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00068">sort.cpp:68</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="sort_8h.html">sort.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
+  </ul>
+</div>
+</body>
+</html>

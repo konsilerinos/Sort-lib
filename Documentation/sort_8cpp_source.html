@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sort-lib: Исходный файл sort.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Sort-lib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('sort_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">sort.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="sort_8cpp.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="sort_8h.html">sort.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="view_8h.html">view.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classSort.html#a3512b0411b1929bb300c15ff044281a5">   11</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classSort.html#a3512b0411b1929bb300c15ff044281a5">Sort::Swap</a>(<span class="keywordtype">int</span>&amp; digit1, <span class="keywordtype">int</span>&amp; digit2) {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    digit1 = digit1 + digit2;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    digit2 = digit1 - digit2;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    digit1 = digit1 - digit2;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classSort.html#aed9f9c1e75665902d7bac32633e36afa">   25</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="classSort.html#aed9f9c1e75665902d7bac32633e36afa">Sort::FindMinElementIndex</a>(std::vector&lt;int&gt;&amp; array, <span class="keywordtype">int</span> left, <span class="keywordtype">int</span> right) {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">// Начальная инициализация индекса</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">int</span> minElementIndex = left;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// Поиск минимального элемента, сохранение индекса</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = left + 1; i &lt; right; i++) {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">if</span> (array[minElementIndex] &gt; array[i]) {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            minElementIndex = i;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">return</span> minElementIndex;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classSort.html#a71c19ca63eac1d5978c63d3a7fcd03e1">   46</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classSort.html#a71c19ca63eac1d5978c63d3a7fcd03e1">Sort::InsertElement</a>(std::vector&lt;int&gt;&amp; array, <span class="keywordtype">int</span> index) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// Вставляемый элемент</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">int</span> value = array[index];</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// Сдвиг значений влево, возникает пара</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">while</span> ((index &gt; 0) &amp;&amp; (value &lt; array[index - 1])) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        array[index] = array[index - 1];</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        index--;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">// Вставка, удаление пары</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    array[index] = value;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classSort.html#aff9023b467693cd6d27c7cab42a0fbe1">   68</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classSort.html#aff9023b467693cd6d27c7cab42a0fbe1">Sort::MergeSort</a>(std::vector&lt;int&gt;&amp; array, <span class="keywordtype">int</span> start, <span class="keywordtype">int</span> end) {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">// Сортировка не требуется</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">if</span> (end - start &lt; 2) {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="comment">// Пара элементов, требуется сортировка</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (end - start == 2) {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="comment">// Установить порядок по возрастанию</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">if</span> (array[start] &gt; array[start + 1]) {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <a class="code hl_function" href="classSort.html#a3512b0411b1929bb300c15ff044281a5">Swap</a>(array[start], array[start + 1]);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">// Вектор. Используется для слияния сортируемых частей</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    std::vector&lt;int&gt; temp(end - start, 0);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="comment">// Деление вектора на две части</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_function" href="classSort.html#aff9023b467693cd6d27c7cab42a0fbe1">MergeSort</a>(array, start, (start + end) / 2);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_function" href="classSort.html#aff9023b467693cd6d27c7cab42a0fbe1">MergeSort</a>(array, (start + end) / 2, end);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">// Сохранение границ первой части</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">int</span> start1 = start;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">int</span> end1 = (start + end) / 2;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="comment">// Сохранение границ второй части</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">int</span> start2 = end1;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">int</span> end2 = end;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="comment">// Слияние сортируемых частей</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; end - start; i++) {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="comment">// Выход за границы первой части или элемент второй части меньша элемента первой</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="comment">// Сохранение в temp элементов второй части</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">if</span> ((start1 &gt;= end1) || ((start2 &lt; end2) &amp;&amp; (array[start2] &lt; array[start1]))) {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            temp[i] = array[start2];</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            start2++;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <span class="comment">// Сохранение в temp элементов первой части</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            temp[i] = array[start1];</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            start1++;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        }</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="comment">// Сохранение отсортированного отрезка [start, end] в исходный массив</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = start; i &lt; end; i++) {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        array[i] = temp[i - start];</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="comment">// Очистка вектора</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    temp.clear();</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>}</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classSort.html#abb9ff8304b0f5473918afebeefdef7eb">  130</a></span>std::chrono::milliseconds <a class="code hl_function" href="classSort.html#abb9ff8304b0f5473918afebeefdef7eb">Sort::ChoiseSort</a>(std::vector&lt;int&gt;&amp; array) {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="comment">// Точка времени, начало, миллисекунды</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    std::chrono::steady_clock::time_point beginTime = std::chrono::steady_clock::now();</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; array.size(); i++) {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="comment">// Поиск индекса с минимальным элементом</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordtype">int</span> index = <a class="code hl_function" href="classSort.html#aed9f9c1e75665902d7bac32633e36afa">FindMinElementIndex</a>(array, i, array.size());</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="comment">// Требуется перестановка</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">if</span> (index != i) {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <span class="comment">// Перестановка</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <a class="code hl_function" href="classSort.html#a3512b0411b1929bb300c15ff044281a5">Swap</a>(array[index], array[i]);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        }</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    }</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="comment">// Точка времени, конец, миллисекунды</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="comment">// Миллисекунды, время выполнения</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    std::chrono::milliseconds resultTime = std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(endTime - beginTime);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordflow">return</span> resultTime;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>}</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="classSort.html#ae736baa9ec9b55cbf986b9466e1a8e35">  161</a></span>std::chrono::milliseconds <a class="code hl_function" href="classSort.html#ae736baa9ec9b55cbf986b9466e1a8e35">Sort::InsertSort</a>(std::vector&lt;int&gt;&amp; array) {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="comment">// Точка времени, начало, миллисекунды</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    std::chrono::steady_clock::time_point beginTime = std::chrono::steady_clock::now();</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; array.size(); i++) {</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <span class="comment">// Вставка элемента в вектор по порядку возрастания</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <a class="code hl_function" href="classSort.html#a71c19ca63eac1d5978c63d3a7fcd03e1">InsertElement</a>(array, i);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    }</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="comment">// Точка времени, конец, миллисекунды</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="comment">// Миллисекунды, время выполнения</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    std::chrono::milliseconds resultTime = std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(endTime - beginTime);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordflow">return</span> resultTime;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>}</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="classSort.html#a72ca2bc2c0aca83252ce81f31ef1003d">  185</a></span>std::chrono::milliseconds <a class="code hl_function" href="classSort.html#a72ca2bc2c0aca83252ce81f31ef1003d">Sort::BubbleSort</a>(std::vector&lt;int&gt;&amp; array) {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="comment">// Точка времени, начало, миллисекунды</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    std::chrono::steady_clock::time_point beginTime = std::chrono::steady_clock::now();</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="comment">// Перебор, перестановка</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; array.size(); i++) {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; array.size() - i - 1; j++) {</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>            <span class="comment">// Требуется перестановка</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keywordflow">if</span> (array[j] &gt; array[j + 1]) {</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                <span class="comment">// Перестановка</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>                <a class="code hl_function" href="classSort.html#a3512b0411b1929bb300c15ff044281a5">Swap</a>(array[j], array[j + 1]);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            }</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        }</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    }</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="comment">// Точка времени, конец, миллисекунды</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="comment">// Миллисекунды, время выполнения</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    std::chrono::milliseconds resultTime = std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(endTime - beginTime);</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordflow">return</span> resultTime;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>}</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="classSort.html#a65bd6289dccda81db5e068eaa5c34a86">  218</a></span>std::chrono::milliseconds <a class="code hl_function" href="classSort.html#a65bd6289dccda81db5e068eaa5c34a86">Sort::ShakerSort</a>(std::vector&lt;int&gt;&amp; array) {</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="comment">// Точка времени, начало, миллисекунды</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    std::chrono::steady_clock::time_point beginTime = std::chrono::steady_clock::now();</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="comment">// Сохранение левой границы</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordtype">int</span> left = 0;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="comment">// Сохранение правой границы</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordtype">int</span> right = array.size() - 1;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="comment">// Если границы пересекутся - вектор отсортирован</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="keywordflow">while</span> (left &lt; right) {</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="comment">// Индекс последней перестановки, пра</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <span class="keywordtype">int</span> lastSwap = 0;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="comment">// Проход вправо</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = left; i &lt; right; i++) {</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            <span class="comment">// Требуется перестановка</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            <span class="keywordflow">if</span> (array[i] &gt; array[i + 1]) {</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                <span class="comment">// Перестановка</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                <a class="code hl_function" href="classSort.html#a3512b0411b1929bb300c15ff044281a5">Swap</a>(array[i], array[i + 1]);</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                <span class="comment">// Сохранение индекса последней перестановки</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>                lastSwap = i;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            }</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        }</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        <span class="comment">// Сдвиг правой границы</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        right = lastSwap;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        <span class="comment">// Проход влево</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = right; i &gt; left; i--) {</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            <span class="comment">// Требуется перестановка</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            <span class="keywordflow">if</span> (array[i - 1] &gt; array[i]) {</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>                <span class="comment">// Перестановка</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>                <a class="code hl_function" href="classSort.html#a3512b0411b1929bb300c15ff044281a5">Swap</a>(array[i - 1], array[i]);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>                <span class="comment">// Сохранение индекса последней перестановки</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                lastSwap = i;</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            }</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        }</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        <span class="comment">// Сдвиг левой границы</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        left = lastSwap;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    }</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="comment">// Точка времени, конец, миллисекунды</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="comment">// Миллисекунды, время выполнения</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    std::chrono::milliseconds resultTime = std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(endTime - beginTime);</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <span class="keywordflow">return</span> resultTime;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>}</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno"><a class="line" href="classSort.html#ab2351becdc147384a116f2cf52ec76d0">  280</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classSort.html#ab2351becdc147384a116f2cf52ec76d0">Sort::WriteArray</a>(std::vector&lt;int&gt;&amp; array) {</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <span class="comment">// Генератор случайных (почти) чисел</span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    std::random_device dev;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    std::mt19937 png(dev());</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    std::uniform_int_distribution&lt;std::mt19937::result_type&gt; dist(0, 10);</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="comment">// Заипсь</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; array.size(); i++) {</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        array[i] = dist(png);</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    }</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>}</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno"><a class="line" href="classSort.html#a62294f4241bee4b9701b9fbc77f6e165">  299</a></span>std::chrono::milliseconds <a class="code hl_function" href="classSort.html#aff9023b467693cd6d27c7cab42a0fbe1">Sort::MergeSort</a>(std::vector&lt;int&gt;&amp; array) {</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="comment">// Точка времени, начало, миллисекунды</span></div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    std::chrono::steady_clock::time_point beginTime = std::chrono::steady_clock::now();</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <span class="comment">// Сортировка слиянием</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    <a class="code hl_function" href="classSort.html#aff9023b467693cd6d27c7cab42a0fbe1">MergeSort</a>(array, 0, array.size());</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <span class="comment">// Точка времени, конец, миллисекунды</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    std::chrono::steady_clock::time_point endTime = std::chrono::steady_clock::now();</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <span class="comment">// Миллисекунды, время выполнения</span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    std::chrono::milliseconds resultTime = std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(endTime - beginTime);</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    <span class="keywordflow">return</span> resultTime;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>}</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno"><a class="line" href="classSort.html#a7539471b5db19eab3a9cbd79e6dd473e">  320</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classSort.html#a7539471b5db19eab3a9cbd79e6dd473e">Sort::RunTimeTest</a>(<span class="keywordtype">int</span> size) {</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <span class="comment">// Генерируемый вектор</span></div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    std::vector&lt;int&gt; array(<a class="code hl_variable" href="classSort.html#a439227feff9d7f55384e8780cfc2eb82">size</a>, 0);</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    <span class="comment">// Количество повторений</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    <span class="keywordtype">int</span> iterCount = 100;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    <span class="comment">// Сохранение размера генерируемого вектора</span></div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    this-&gt;size = <a class="code hl_variable" href="classSort.html#a439227feff9d7f55384e8780cfc2eb82">size</a>;</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span> </div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    <span class="comment">// Время работы алгоритма сортировки выбором, 0 мс</span></div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    <a class="code hl_variable" href="classSort.html#a44f37584b86b55680816f4642583660f">choiseSortTime</a> = std::chrono::milliseconds(0);</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    <span class="comment">// Время работы алгоритма сортировки вставками, 0 мс</span></div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    <a class="code hl_variable" href="classSort.html#abfbf29a53045cc012dcde1fe2126aaae">insertSortTime</a> = std::chrono::milliseconds(0);</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    <span class="comment">// Время работы алгоритма сортировки слиянием, 0 мс</span></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    <a class="code hl_variable" href="classSort.html#aea3f087a962391d3625e26299a47b5b6">mergeSortTime</a> = std::chrono::milliseconds(0);</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>    <span class="comment">// Время работы алгоритма пузырьковой сортировки, 0 мс</span></div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    <a class="code hl_variable" href="classSort.html#ab513b934c634ed91324e0c6d69cc0741">bubbleSortTime</a> = std::chrono::milliseconds(0);</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    <span class="comment">// Время работы алгоритмы шейкерной сортировки, 0 мс</span></div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    <a class="code hl_variable" href="classSort.html#af3c7afb68fcfc0f6b894ae1749da2817">shakerSortTime</a> = std::chrono::milliseconds(0);</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    <span class="comment">// Начало проверки. Получение среднего времени работы алгоритмов</span></div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; iterCount; i++) {</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        <span class="comment">// Запись вектора случайными знаениями</span></div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        <a class="code hl_function" href="classSort.html#ab2351becdc147384a116f2cf52ec76d0">WriteArray</a>(array);</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        <span class="comment">// Копия вектора</span></div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        std::vector&lt;int&gt; arrayCopy;</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        <span class="comment">// Сохранение времени работы алгоритма сортировки выбором</span></div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>        <a class="code hl_variable" href="classSort.html#a44f37584b86b55680816f4642583660f">choiseSortTime</a> += <a class="code hl_function" href="classSort.html#abb9ff8304b0f5473918afebeefdef7eb">ChoiseSort</a>(arrayCopy = array);</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        <span class="comment">// Сохранение времени работы алгоритма сортировки вставками</span></div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>        <a class="code hl_variable" href="classSort.html#abfbf29a53045cc012dcde1fe2126aaae">insertSortTime</a> += <a class="code hl_function" href="classSort.html#ae736baa9ec9b55cbf986b9466e1a8e35">InsertSort</a>(arrayCopy = array);</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>        <span class="comment">// Сохранение времени работы алгоритма сортировки слиянием</span></div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>        <a class="code hl_variable" href="classSort.html#aea3f087a962391d3625e26299a47b5b6">mergeSortTime</a> += <a class="code hl_function" href="classSort.html#aff9023b467693cd6d27c7cab42a0fbe1">MergeSort</a>(arrayCopy = array);</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>        <a class="code hl_function" href="classView.html#aceea2d1dc8706e51bf547e0b030c4d0b">View::Print</a>(std::to_string(i) + <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>        <span class="comment">// Сохранение времени работы алгоритма пузырьковой сортировки</span></div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>        <a class="code hl_variable" href="classSort.html#ab513b934c634ed91324e0c6d69cc0741">bubbleSortTime</a> += <a class="code hl_function" href="classSort.html#a72ca2bc2c0aca83252ce81f31ef1003d">BubbleSort</a>(arrayCopy = array);</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        <span class="comment">// Сохранение времени работы алгоритма шейкерной сортировки</span></div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>        <a class="code hl_variable" href="classSort.html#af3c7afb68fcfc0f6b894ae1749da2817">shakerSortTime</a> += <a class="code hl_function" href="classSort.html#a65bd6289dccda81db5e068eaa5c34a86">ShakerSort</a>(arrayCopy = array);</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    }</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    <span class="comment">// Среднее время работы алгоритма сортировки выбором</span></div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    <span class="comment">// std::cout &lt;&lt; &quot;Choise sort count is &quot; &lt;&lt; choiseSortTime.count() &lt;&lt; &quot;\n&quot;;</span></div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    <a class="code hl_variable" href="classSort.html#a44f37584b86b55680816f4642583660f">choiseSortTime</a> /= iterCount;</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    <span class="comment">// Среднее время работы алгоритма сортировки вставками</span></div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    <span class="comment">// std::cout &lt;&lt; &quot;Insert sort count is &quot; &lt;&lt; insertSortTime.count() &lt;&lt; &quot;\n&quot;;</span></div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    <a class="code hl_variable" href="classSort.html#abfbf29a53045cc012dcde1fe2126aaae">insertSortTime</a> /= iterCount;</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    <span class="comment">// Среднее время работы алгоритма сортировки слиянием</span></div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    <span class="comment">// std::cout &lt;&lt; &quot;Merge sort count is &quot; &lt;&lt; mergeSortTime.count() &lt;&lt; &quot;\n&quot;;</span></div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    <a class="code hl_variable" href="classSort.html#aea3f087a962391d3625e26299a47b5b6">mergeSortTime</a> /= iterCount;</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    <span class="comment">// Среднее время работы алгоритма пузырьковой сортировки</span></div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>    <span class="comment">// std::cout &lt;&lt; &quot;Bubble sort count is &quot; &lt;&lt; bubbleSortTime.count() &lt;&lt; &quot;\n&quot;;</span></div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>    <a class="code hl_variable" href="classSort.html#ab513b934c634ed91324e0c6d69cc0741">bubbleSortTime</a> /= iterCount;</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    <span class="comment">// Среднее время работы алгоритма шейкерной сортировки</span></div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    <span class="comment">// std::cout &lt;&lt; &quot;Shaker sort count is &quot; &lt;&lt; shakerSortTime.count() &lt;&lt; &quot;\n&quot;;</span></div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    <a class="code hl_variable" href="classSort.html#af3c7afb68fcfc0f6b894ae1749da2817">shakerSortTime</a> /= iterCount;</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span> </div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <span class="comment">// Вывод информации на экран</span></div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    <a class="code hl_function" href="classSort.html#a7f3266359c6453fc10f9a8deb6436551">PrintResults</a>();</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>}</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno"><a class="line" href="classSort.html#a7f3266359c6453fc10f9a8deb6436551">  386</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classSort.html#a7f3266359c6453fc10f9a8deb6436551">Sort::PrintResults</a>() {</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span> </div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    <span class="comment">// Размер генерируемого вектора</span></div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    <a class="code hl_function" href="classView.html#aceea2d1dc8706e51bf547e0b030c4d0b">View::Print</a>(<span class="stringliteral">&quot;Size = &quot;</span> + std::to_string(<a class="code hl_variable" href="classSort.html#a439227feff9d7f55384e8780cfc2eb82">size</a>) + <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span> </div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>    <span class="comment">// Информация о замерах</span></div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    <a class="code hl_function" href="classView.html#aceea2d1dc8706e51bf547e0b030c4d0b">View::Print</a>(<span class="stringliteral">&quot;Choise sorting time is &quot;</span> + std::to_string(<a class="code hl_variable" href="classSort.html#a44f37584b86b55680816f4642583660f">choiseSortTime</a>.count()) + <span class="stringliteral">&quot; milliseconds\n&quot;</span>);</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>    <a class="code hl_function" href="classView.html#aceea2d1dc8706e51bf547e0b030c4d0b">View::Print</a>(<span class="stringliteral">&quot;Insert sorting time is &quot;</span> + std::to_string(<a class="code hl_variable" href="classSort.html#abfbf29a53045cc012dcde1fe2126aaae">insertSortTime</a>.count()) + <span class="stringliteral">&quot; milliseconds\n&quot;</span>);</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    <a class="code hl_function" href="classView.html#aceea2d1dc8706e51bf547e0b030c4d0b">View::Print</a>(<span class="stringliteral">&quot;Merge sorting time is &quot;</span> + std::to_string(<a class="code hl_variable" href="classSort.html#aea3f087a962391d3625e26299a47b5b6">mergeSortTime</a>.count()) + <span class="stringliteral">&quot; milliseconds\n&quot;</span>);</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    <a class="code hl_function" href="classView.html#aceea2d1dc8706e51bf547e0b030c4d0b">View::Print</a>(<span class="stringliteral">&quot;Bubble sorting time is &quot;</span> + std::to_string(<a class="code hl_variable" href="classSort.html#ab513b934c634ed91324e0c6d69cc0741">bubbleSortTime</a>.count()) + <span class="stringliteral">&quot; milliseconds\n&quot;</span>);</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    <a class="code hl_function" href="classView.html#aceea2d1dc8706e51bf547e0b030c4d0b">View::Print</a>(<span class="stringliteral">&quot;Shaker sorting time is &quot;</span> + std::to_string(<a class="code hl_variable" href="classSort.html#af3c7afb68fcfc0f6b894ae1749da2817">shakerSortTime</a>.count()) + <span class="stringliteral">&quot; milliseconds\n&quot;</span>);</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>}</div>
+<div class="ttc" id="aclassSort_html_a3512b0411b1929bb300c15ff044281a5"><div class="ttname"><a href="classSort.html#a3512b0411b1929bb300c15ff044281a5">Sort::Swap</a></div><div class="ttdeci">void Swap(int &amp;digit1, int &amp;digit2)</div><div class="ttdoc">Обмен значений двух чисел</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00011">sort.cpp:11</a></div></div>
+<div class="ttc" id="aclassSort_html_a439227feff9d7f55384e8780cfc2eb82"><div class="ttname"><a href="classSort.html#a439227feff9d7f55384e8780cfc2eb82">Sort::size</a></div><div class="ttdeci">int size</div><div class="ttdoc">Размер вектора, используется для вывода информации о результатах тестирование</div><div class="ttdef"><b>Definition:</b> <a href="sort_8h_source.html#l00035">sort.h:35</a></div></div>
+<div class="ttc" id="aclassSort_html_a44f37584b86b55680816f4642583660f"><div class="ttname"><a href="classSort.html#a44f37584b86b55680816f4642583660f">Sort::choiseSortTime</a></div><div class="ttdeci">std::chrono::milliseconds choiseSortTime</div><div class="ttdoc">Время в миллисекундах, сортировка выбором</div><div class="ttdef"><b>Definition:</b> <a href="sort_8h_source.html#l00014">sort.h:14</a></div></div>
+<div class="ttc" id="aclassSort_html_a65bd6289dccda81db5e068eaa5c34a86"><div class="ttname"><a href="classSort.html#a65bd6289dccda81db5e068eaa5c34a86">Sort::ShakerSort</a></div><div class="ttdeci">std::chrono::milliseconds ShakerSort(std::vector&lt; int &gt; &amp;array)</div><div class="ttdoc">Сортировка перемешиванием, шейкерная</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00218">sort.cpp:218</a></div></div>
+<div class="ttc" id="aclassSort_html_a71c19ca63eac1d5978c63d3a7fcd03e1"><div class="ttname"><a href="classSort.html#a71c19ca63eac1d5978c63d3a7fcd03e1">Sort::InsertElement</a></div><div class="ttdeci">void InsertElement(std::vector&lt; int &gt; &amp;array, int index)</div><div class="ttdoc">Вставка элемента по индексу в вектор по возрастанию</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00046">sort.cpp:46</a></div></div>
+<div class="ttc" id="aclassSort_html_a72ca2bc2c0aca83252ce81f31ef1003d"><div class="ttname"><a href="classSort.html#a72ca2bc2c0aca83252ce81f31ef1003d">Sort::BubbleSort</a></div><div class="ttdeci">std::chrono::milliseconds BubbleSort(std::vector&lt; int &gt; &amp;array)</div><div class="ttdoc">Сортировка обменом, пузырьковая</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00185">sort.cpp:185</a></div></div>
+<div class="ttc" id="aclassSort_html_a7539471b5db19eab3a9cbd79e6dd473e"><div class="ttname"><a href="classSort.html#a7539471b5db19eab3a9cbd79e6dd473e">Sort::RunTimeTest</a></div><div class="ttdeci">void RunTimeTest(int size)</div><div class="ttdoc">Замер времени работы алгоритмов сортировки</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00320">sort.cpp:320</a></div></div>
+<div class="ttc" id="aclassSort_html_a7f3266359c6453fc10f9a8deb6436551"><div class="ttname"><a href="classSort.html#a7f3266359c6453fc10f9a8deb6436551">Sort::PrintResults</a></div><div class="ttdeci">void PrintResults()</div><div class="ttdoc">Вывод на экран информации о работе алгоритмов сортировки</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00386">sort.cpp:386</a></div></div>
+<div class="ttc" id="aclassSort_html_ab2351becdc147384a116f2cf52ec76d0"><div class="ttname"><a href="classSort.html#ab2351becdc147384a116f2cf52ec76d0">Sort::WriteArray</a></div><div class="ttdeci">void WriteArray(std::vector&lt; int &gt; &amp;array)</div><div class="ttdoc">Запись вектора случайными значениями</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00280">sort.cpp:280</a></div></div>
+<div class="ttc" id="aclassSort_html_ab513b934c634ed91324e0c6d69cc0741"><div class="ttname"><a href="classSort.html#ab513b934c634ed91324e0c6d69cc0741">Sort::bubbleSortTime</a></div><div class="ttdeci">std::chrono::milliseconds bubbleSortTime</div><div class="ttdoc">Время в миллисекундах, сортировка обменом (пузырьковая)</div><div class="ttdef"><b>Definition:</b> <a href="sort_8h_source.html#l00026">sort.h:26</a></div></div>
+<div class="ttc" id="aclassSort_html_abb9ff8304b0f5473918afebeefdef7eb"><div class="ttname"><a href="classSort.html#abb9ff8304b0f5473918afebeefdef7eb">Sort::ChoiseSort</a></div><div class="ttdeci">std::chrono::milliseconds ChoiseSort(std::vector&lt; int &gt; &amp;array)</div><div class="ttdoc">Сортировка выбором</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00130">sort.cpp:130</a></div></div>
+<div class="ttc" id="aclassSort_html_abfbf29a53045cc012dcde1fe2126aaae"><div class="ttname"><a href="classSort.html#abfbf29a53045cc012dcde1fe2126aaae">Sort::insertSortTime</a></div><div class="ttdeci">std::chrono::milliseconds insertSortTime</div><div class="ttdoc">Время в миллисекундах, сортировка вставками</div><div class="ttdef"><b>Definition:</b> <a href="sort_8h_source.html#l00018">sort.h:18</a></div></div>
+<div class="ttc" id="aclassSort_html_ae736baa9ec9b55cbf986b9466e1a8e35"><div class="ttname"><a href="classSort.html#ae736baa9ec9b55cbf986b9466e1a8e35">Sort::InsertSort</a></div><div class="ttdeci">std::chrono::milliseconds InsertSort(std::vector&lt; int &gt; &amp;array)</div><div class="ttdoc">Сортировка вставками</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00161">sort.cpp:161</a></div></div>
+<div class="ttc" id="aclassSort_html_aea3f087a962391d3625e26299a47b5b6"><div class="ttname"><a href="classSort.html#aea3f087a962391d3625e26299a47b5b6">Sort::mergeSortTime</a></div><div class="ttdeci">std::chrono::milliseconds mergeSortTime</div><div class="ttdoc">Время в миллисекундах, сортировка слиянием</div><div class="ttdef"><b>Definition:</b> <a href="sort_8h_source.html#l00022">sort.h:22</a></div></div>
+<div class="ttc" id="aclassSort_html_aed9f9c1e75665902d7bac32633e36afa"><div class="ttname"><a href="classSort.html#aed9f9c1e75665902d7bac32633e36afa">Sort::FindMinElementIndex</a></div><div class="ttdeci">int FindMinElementIndex(std::vector&lt; int &gt; &amp;array, int left, int right)</div><div class="ttdoc">Поиск индекса минимального элемента в векторе</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00025">sort.cpp:25</a></div></div>
+<div class="ttc" id="aclassSort_html_af3c7afb68fcfc0f6b894ae1749da2817"><div class="ttname"><a href="classSort.html#af3c7afb68fcfc0f6b894ae1749da2817">Sort::shakerSortTime</a></div><div class="ttdeci">std::chrono::milliseconds shakerSortTime</div><div class="ttdoc">Время в миллисекундах, сортировка перемешиванием (шейкерная)</div><div class="ttdef"><b>Definition:</b> <a href="sort_8h_source.html#l00030">sort.h:30</a></div></div>
+<div class="ttc" id="aclassSort_html_aff9023b467693cd6d27c7cab42a0fbe1"><div class="ttname"><a href="classSort.html#aff9023b467693cd6d27c7cab42a0fbe1">Sort::MergeSort</a></div><div class="ttdeci">void MergeSort(std::vector&lt; int &gt; &amp;array, int start, int end)</div><div class="ttdoc">Сортировка слиянием. Не возвращает времени выполнения</div><div class="ttdef"><b>Definition:</b> <a href="sort_8cpp_source.html#l00068">sort.cpp:68</a></div></div>
+<div class="ttc" id="aclassView_html_aceea2d1dc8706e51bf547e0b030c4d0b"><div class="ttname"><a href="classView.html#aceea2d1dc8706e51bf547e0b030c4d0b">View::Print</a></div><div class="ttdeci">static void Print(std::vector&lt; int &gt; &amp;array)</div><div class="ttdoc">Вывод информации на экран</div><div class="ttdef"><b>Definition:</b> <a href="view_8cpp_source.html#l00005">view.cpp:5</a></div></div>
+<div class="ttc" id="asort_8h_html"><div class="ttname"><a href="sort_8h.html">sort.h</a></div></div>
+<div class="ttc" id="aview_8h_html"><div class="ttname"><a href="view_8h.html">view.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="sort_8cpp.html">sort.cpp</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
+  </ul>
+</div>
+</body>
+</html>
