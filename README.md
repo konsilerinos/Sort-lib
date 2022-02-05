@@ -11,7 +11,6 @@
 ## Документация
 
 1. Документация по коду доступна [**здесь**](https://konsilerinos.github.io/Sort-lib/Documentation/classSort.html)
-2. Документация по алгоритмам доступна [**здесь**](https://konsilerinos.gitbook.io/cpp-prog/)
 
 ## -
 
